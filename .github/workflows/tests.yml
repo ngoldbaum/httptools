@@ -46,7 +46,7 @@ jobs:
       if: steps.release.outputs.version == 0
       run: |
         python -m pip install -U pip setuptools wheel
-        python -m pip install -e .[test]
+        python -m pip install .[test] --use-pep517
         python -m unittest -v tests.suite
 
     - name: Test (free-threading stress test)
